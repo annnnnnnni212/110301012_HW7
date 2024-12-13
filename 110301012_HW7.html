@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>110301012</title>
+    <link rel="stylesheet" href="110301012_HW5.css">
+    <script>
+        let isEditing = false;
+
+        // Toggle between edit and save name functionality
+        function toggleNameEdit() {
+            const nameElement = document.getElementById("name");
+            const editButton = document.getElementById("editButton");
+
+            if (isEditing) {
+                const newName = document.getElementById("nameInput").value;
+                nameElement.textContent = newName;
+                editButton.textContent = "edit";
+            } else {
+                const currentName = nameElement.textContent;
+                nameElement.innerHTML = `<input type="text" id="nameInput" value="${currentName}">`;
+                editButton.textContent = "save";
+            }
+
+            isEditing = !isEditing; // Toggle editing state
+        }
+
+        // Add new music item to the list
+        function addMusic() {
+            const musicLink = document.getElementById("musicLink").value;
+            const musicName = document.getElementById("musicName").value;
+
+            if (musicLink && musicName) {
+                const musicGallery = document.querySelector(".music-gallery");
+
+                const musicItem = document.createElement("div");
+                musicItem.classList.add("music-item");
+                musicItem.innerHTML = `
+                    <a href="${musicLink}" target="_blank">
+                        <img src="svtlogo.png" alt="${musicName}">
+                    </a>
+                    <p>${musicName}</p>
+                `;
+                musicGallery.appendChild(musicItem);
+
+                // Clear form and close it
+                document.getElementById("musicLink").value = '';
+                document.getElementById("musicName").value = '';
+                document.getElementById("addMusicForm").style.display = 'none';
+            } else {
+                alert("Please fill in both the music link and name.");
+            }
+        }
+
+        // Show the form to add music
+        function showAddMusicForm() {
+            document.getElementById("addMusicForm").style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+
+<div class="main-container">
+    <!-- Left Panel -->
+    <div class="left-panel">
+        <div class="photo-panel"></div>
+        <div class="text-content">
+            <h2>About Me</h2>
+            <h1 id="name">An Ni</h1>
+            <button id="editButton" onclick="toggleNameEdit()">edit</button>
+            <p>I am a senior in the IB at National Chengchi University. I am very interested in studying programming and computer science fundamentals.</p>
+            <h3>Contact Info</h3>
+            <ul>
+                <li>Email: 110301012@nccu.edu.tw</li>
+            </ul>
+            <img src="政大.png" alt="NCCU Icon" class="nccu-icon">
+        </div>
+    </div>
+
+    <!-- Right Panel -->
+    <div class="right-panel">
+        <section class="education">
+            <h2>Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="year">2021 - now</span>
+                    <span class="description">National Chengchi University, Department of IB</span>
+                </div>
+                <div class="timeline-item">
+                    <span class="year">2018 - 2021</span>
+                    <span class="description">Taoyuan Wu Ling</span>
+                </div>
+                <div class="timeline-item">
+                    <span class="year">2015 - 2018</span>
+                    <span class="description">Middle School Graduate</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="homework-list">
+            <h2>Homework List</h2>
+            <br>HW1<a href="https://github.com/annnnnnnni212/110301012.git">https://github.com/annnnnnnni212/110301012.git</a>
+            <br>HW2<a href="https://github.com/annnnnnnni212/HW2.git">https://github.com/annnnnnnni212/HW2.git</a>
+            <br>HW3<a href="https://github.com/annnnnnnni212/20241018.git">https://github.com/annnnnnnni212/20241018.git</a>
+        </section>
+
+        <section class="favorite-music">
+            <h2>Favorite Music</h2>
+            <button onclick="showAddMusicForm()">Add Music</button>
+            <div class="music-gallery">
+                <div class="music-item">
+                    <a href="https://www.youtube.com/watch?v=9kpuOoIh3wU&ab_channel=HYBELABELS"><img src="svtlogo.png" alt="FML"></a>
+                    <p>FML</p>
+                </div>
+                <div class="music-item">
+                    <a href="https://www.youtube.com/watch?v=5NPe8_gDSr4&ab_channel=HYBELABELS"><img src="svtlogo.png" alt="LMF"></a>
+                    <p>LMF</p>
+                </div>
+                <div class="music-item">
+                    <a href="https://www.youtube.com/watch?v=gRnuFC4Ualw&ab_channel=HYBELABELS"><img src="svtlogo.png" alt="Hot"></a>
+                    <p>Hot</p>
+                </div>
+                <div class="music-item">
+                    <a href="https://www.youtube.com/watch?v=F9CrRG6j2SM&ab_channel=SEVENTEEN"><img src="svtlogo.png" alt="Hot"></a>
+                    <p>Hit</p>
+                </div>
+            </div>
+            <p class="music-note">These songs are sung by the KPOP group-Seventeen. The reason I chose them is because all titles are in three letters. However, I still recommend them a lot.</p>
+        </section>
+    </div>
+</div>
+
+<!-- Add Music Form -->
+<div id="addMusicForm" style="display:none;">
+    <h3>Add New Music</h3>
+    <input type="text" id="musicLink" placeholder="Enter music link" />
+    <input type="text" id="musicName" placeholder="Enter music name" />
+    <button onclick="addMusic()">Submit</button>
+    <button onclick="document.getElementById('addMusicForm').style.display='none'">Cancel</button>
+</div>
+
+</body>
+</html>

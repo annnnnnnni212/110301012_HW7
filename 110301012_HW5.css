@@ -1,0 +1,179 @@
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f2f5;
+    font-family: Arial, sans-serif;
+}
+
+.main-container {
+    display: grid;
+    grid-template-columns: 330px 540px; /* 左邊固定寬度，右邊自適應 */
+    max-width: 900px;
+    width: 100%;
+    height: auto; /* 自動適應內容高度 */
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    gap: 20px; /* 左右間距 */
+}
+
+/* 左側面板 */
+.left-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.photo-panel {
+    height: 50%; /* 自動適應圖片高度 */
+    aspect-ratio: 9/16; /* 確保圖片比例不被裁切 */
+    background-image: url('S__4046922.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.text-content {
+    height: 50%;
+    padding: 10px;
+    padding-left: 30px; /* 左側增加空間 */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: lightpink; /* 設定背景顏色 */
+    border-radius: 10px; /* 圓角讓區塊更柔和 */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* 加陰影提升立體感 */
+}
+
+.text-content p {
+    margin-bottom: 3px;
+    color: black;
+}
+
+.text-content ul {
+    list-style-type: none;
+}
+
+.text-content li {
+    margin-bottom: 5px;
+}
+
+.nccu-icon {
+    width: 50px;
+    height: 50px;
+}
+
+/* 右側面板 */
+.right-panel {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* 各區域的均勻間隔 */
+}
+
+.right-panel section {
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd; /* 分隔線 */
+    word-wrap: break-word; /* 避免單詞超出容器 */
+}
+
+.right-panel section:last-child {
+    border-bottom: none; /* 最後一個區域去除分隔線 */
+}
+
+/* 確保內容高度一致並均勻分布 */
+.right-panel section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* 均勻分布 */
+}
+
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* 壓縮時間線項目的間距 */
+}
+
+.timeline-item {
+    display: flex;
+    justify-content: space-between;
+    color: #555;
+}
+
+.year {
+    font-weight: bold;
+}
+
+.homework-list ul,
+.favorite-music .music-gallery {
+    display: flex;
+    flex-direction: row;
+    gap: 20px; /* 縮小列表項目之間的距離 */
+}
+
+.homework-list a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.homework-list a:hover {
+    text-decoration: none;
+}
+
+/* 音樂區域 */
+.favorite-music {
+    text-align: center;
+}
+
+.music-gallery {
+    display: flex;
+    justify-content: space-around; /* 圖片均分排列 */
+    gap: 10px; /* 每個項目之間的間隔 */
+}
+
+.music-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 置中對齊 */
+    gap: 5px; /* 圖片和文字之間的間距 */
+    width: 80px; /* 固定每個項目的寬度 */
+}
+
+.music-item img {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    object-fit: cover; /* 保持圖片比例 */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* 加上陰影 */
+}
+
+.music-item p {
+    margin: 0;
+    font-size: 12px;
+    color: black;
+    text-align: center; /* 歌名置中 */
+}
+
+.music-note {
+    margin-top: 15px;
+    font-size: 15px;
+    color: #777;
+}
+
+.timeline-item,
+.homework-list li,
+.favorite-music p {
+    margin-bottom: 5px;
+    color: #555;
+    text-align: justify; /* 左右對齊 */
+}
